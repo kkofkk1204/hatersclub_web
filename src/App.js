@@ -279,7 +279,7 @@ function App() {
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  * Excluding gas fees.1115
+                  * 1 - 2000 : Free Mint ; 2001 - 5000 : 0.05e
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||

@@ -1,0 +1,1 @@
+        <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
