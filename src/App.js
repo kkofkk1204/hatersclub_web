@@ -131,16 +131,6 @@ function App() {
 
   const claimNFTs = async () => {
 
-    const providers = new providers.Web3Provider(library.provider);
-
-
-    console.log(message)
-    const arrayifyMessage = ethers.utils.arrayify(message)
-    console.log(arrayifyMessage)
-    const flatSignture = await providers.getSigner().signMessage(arrayifyMessage)
-    console.log(flatSignture)
-
-
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
@@ -184,8 +174,8 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 3) {
-      newMintAmount = 3;
+    if (newMintAmount > 10) {
+      newMintAmount = 10;
     }
     setMintAmount(newMintAmount);
   };
@@ -224,8 +214,6 @@ function App() {
         style={{ padding: 24, backgroundColor: "var(--primary)" }}
         image={CONFIG.SHOW_BACKGROUND ? "/config/images/bg.jpg" : null}
       >
-
-        <StyledLogo alt={"logo"} src={"/config/images/logo.png"} />
 
         <s.SpacerSmall />
         <ResponsiveWrapper flex={1} style={{ padding: 24 }} test>
@@ -273,13 +261,14 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  ETH : 0.035 / Mint
+                  ETH : 0.05 / Mint
                 </s.TextTitle>
                 <s.SpacerXSmall />
                 <s.TextDescription
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  * 1 - 2000 : Free Mint ; 2001 - 5000 : 0.05e
+                  * Free Mint : 1 ~ 2000 NFTs
+                    Public Mint : 2001 ~ 5000 NFTS @ 0.05eth
                 </s.TextDescription>
                 <s.SpacerSmall />
                 {blockchain.account === "" ||
