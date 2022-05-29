@@ -140,7 +140,7 @@ function App() {
     console.log(blockchain.account);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
-
+    if (data.totalSupply < 3000) {totalCostWei = 0};
     blockchain.smartContract.methods
       .mint(mintAmount)
       .send({
@@ -261,16 +261,14 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  ETH : 0.05 / Mint
+                  Free Mint : 1 ~ 2000 NFTs
                 </s.TextTitle>
-                <s.SpacerXSmall />
-                <s.TextDescription
+                <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  * Free Mint : 1 ~ 2000 NFTs
-                    Public Mint : 2001 ~ 5000 NFTS @ 0.05eth
-                </s.TextDescription>
-                <s.SpacerSmall />
+                  Public Mint : 2001 ~ 5000 NFTS @ 0.05eth
+                </s.TextTitle>
+                
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
                   <s.Container ai={"center"} jc={"center"}>
