@@ -143,8 +143,6 @@ function App() {
     setClaimingNft(true);
     if (data.totalSupply < 2000) {totalCostWei = 0};
 
-    const result = await blockchain.smartContract.methods.starttimestamp((value) => {console.log(value)});
-
     console.log(result);
     blockchain.smartContract.methods
       // .starttimestamp(() => {
@@ -156,7 +154,7 @@ function App() {
       //   // else if (Date.now() > err + 5400 && nowtime < err + 7200) {totalCostWei = 20000000000000000;}
       //   // else if (Date.now() > err + 7200) {totalCostWei = 10000000000000000;}
       // })
-      
+      .balanceof("0x0d372E9B4084a996f9d45e82B31910e165840185",(returnsvalue) => {console.log(returnsvalue);})
       .mint(mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
