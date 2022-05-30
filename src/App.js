@@ -139,11 +139,11 @@ function App() {
     console.log(blockchain.account);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
-    if (data.totalSupply < 2000) {totalCostWei = 0};
+  
     await blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
     console.log(value1);
     console.log(Date.now());
-    nowtime = parseInt(String(Date.now().substring(0,9)))
+    nowtime = Int16Array(String(Date.now().substring(0,9)))
     if (value1 == null) {cost = 50000000000000000;console.log("-0");}
     else if (nowtime > value1 && nowtime <= value1 + 1800000) {cost = 50000000000000000;console.log("-1");}
     else if (nowtime > value1 + 1800000 && nowtime <= value1 + 3600000) {cost = 40000000000000000;console.log("-2");}
@@ -152,12 +152,14 @@ function App() {
     else if (nowtime > value1 + 7200000) {cost = 10000000000000000;console.log("-5");}
     });
 
+    
     let totalCostWei = String(cost * mintAmount);
 
     console.log(cost);
     console.log(nowtime)
     console.log(value1)
-  
+    
+    if (data.totalSupply < 2000) {totalCostWei = 0};
 
     blockchain.smartContract.methods
       .mint(mintAmount)
