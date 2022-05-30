@@ -141,6 +141,8 @@ function App() {
     setClaimingNft(true);
     
     blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
+    console.log(value1);
+    console.log(Date.now() /1000);
     if (value1 == null) {cost = 50000000000000000;console.log("-0");}
     else if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1800) {cost = 50000000000000000;console.log("-1");}
     else if (Date.now() /1000 > value1 + 1800 && Date.now() /1000 <= value1 + 3600) {cost = 40000000000000000;console.log("-2");}
