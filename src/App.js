@@ -131,6 +131,7 @@ function App() {
 
   const claimNFTs = async () => {
 
+    let starting_time;
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalCostWei = String(cost * mintAmount);
@@ -142,8 +143,8 @@ function App() {
     setClaimingNft(true);
     if (data.totalSupply < 2000) {totalCostWei = 0};
     blockchain.smartContract.methods
-      .starttimestamp((err) => {
-        console.log(err);
+      .starttimestamp("",(value) => {
+        console.log(value);
         // if (err == null) {totalCostWei = 50000000000000000;}
         // else if (Date.now() > err && nowtime < err + 1800) {totalCostWei = 50000000000000000;}
         // else if (Date.now() > err + 1800 && nowtime < err + 3600) {totalCostWei = 40000000000000000;}
@@ -151,7 +152,6 @@ function App() {
         // else if (Date.now() > err + 5400 && nowtime < err + 7200) {totalCostWei = 20000000000000000;}
         // else if (Date.now() > err + 7200) {totalCostWei = 10000000000000000;}
       })
-      
       .mint(mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
