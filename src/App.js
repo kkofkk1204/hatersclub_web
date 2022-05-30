@@ -134,9 +134,8 @@ function App() {
     let starting_time;
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
-    let totalCostWei = String(cost * mintAmount);
     let totalGasLimit = String(gasLimit * mintAmount);
-    console.log("Cost: ", totalCostWei);
+  
     console.log("Gas limit: ", totalGasLimit);
     console.log(blockchain.account);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
@@ -145,13 +144,15 @@ function App() {
 
     console.log(blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
     console.log(value1);
-    if (value1 == null) {totalCostWei = 50000000000000000;}
-    else if (Date.now() > err && nowtime < err + 1800) {totalCostWei = 50000000000000000;}
-    else if (Date.now() > err + 1800 && nowtime < err + 3600) {totalCostWei = 40000000000000000;}
-    else if (Date.now() > err + 3600 && nowtime < err + 5400) {totalCostWei = 30000000000000000;}
-    else if (Date.now() > err + 5400 && nowtime < err + 7200) {totalCostWei = 20000000000000000;}
-    else if (Date.now() > err + 7200) {totalCostWei = 10000000000000000;}
+    if (value1 == null) {cost = 50000000000000000;}
+    else if (Date.now() > value1 && nowtime < value1 + 1800) {cost = 50000000000000000;}
+    else if (Date.now() > value1 + 1800 && nowtime < value1 + 3600) {cost = 40000000000000000;}
+    else if (Date.now() > value1 + 3600 && nowtime < value1 + 5400) {cost = 30000000000000000;}
+    else if (Date.now() > value1 + 5400 && nowtime < value1 + 7200) {cost = 20000000000000000;}
+    else if (Date.now() > value1 + 7200) {cost = 10000000000000000;}
     }));
+
+    let totalCostWei = String(cost * mintAmount);
 
     blockchain.smartContract.methods
       .mint(mintAmount)
