@@ -130,7 +130,6 @@ function App() {
 
 
   const claimNFTs = async () => {
-    var cost;
     // var cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit * mintAmount);
@@ -140,7 +139,10 @@ function App() {
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     
-    blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
+    var value1 = blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
+      return value1;
+    });
+
     value1 = parseInt(value1);
     console.log(value1 + 1800);
     console.log(Date.now() / 1000);
@@ -150,10 +152,9 @@ function App() {
     else if (Date.now() /1000 > value1 + 5400 && Date.now() /1000 <= value1 + 7200) {cost = 20000000000000000;console.log("-4");}
     else if (Date.now() /1000 > value1 + 7200) {cost = 10000000000000000;console.log("-5");}
     else {{cost = 50000000000000000;console.log("-0");}}
-    });
 
+    console.log("123123");
     let totalCostWei = String(cost * mintAmount);
-
     console.log(cost);
 
     if (data.totalSupply < 20) {totalCostWei = 0};
