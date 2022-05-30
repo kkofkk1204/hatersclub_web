@@ -131,10 +131,10 @@ function App() {
 
   const claimNFTs = async () => {
 
-    let cost = CONFIG.WEI_COST;
+    var cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit * mintAmount);
-  
+
     console.log("Gas limit: ", totalGasLimit);
     console.log(blockchain.account);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
