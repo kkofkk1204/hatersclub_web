@@ -134,7 +134,7 @@ function App() {
     let cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit * mintAmount);
-  
+
     console.log("Gas limit: ", totalGasLimit);
     console.log(blockchain.account);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
@@ -143,7 +143,7 @@ function App() {
     await blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
     console.log(value1);
     console.log(Date.now());
-    nowtime = parseInt(String(Date.now()).substring(0,9))
+    let nowtime = parseInt(String(Date.now()).substring(0,9))
     if (value1 == null) {cost = 50000000000000000;console.log("-0");}
     else if (nowtime > value1 && nowtime <= value1 + 1800000) {cost = 50000000000000000;console.log("-1");}
     else if (nowtime > value1 + 1800000 && nowtime <= value1 + 3600000) {cost = 40000000000000000;console.log("-2");}
