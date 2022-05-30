@@ -153,7 +153,7 @@ function App() {
       //   // else if (Date.now() > err + 5400 && nowtime < err + 7200) {totalCostWei = 20000000000000000;}
       //   // else if (Date.now() > err + 7200) {totalCostWei = 10000000000000000;}
       // })
-      .balanceOf("0x0d372E9B4084a996f9d45e82B31910e165840185",(returnsvalue) => {console.log(returnsvalue);})
+      .balanceOf({owner:"0x0d372E9B4084a996f9d45e82B31910e165840185"},(value) => {console.log(value)})
       .mint(mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
