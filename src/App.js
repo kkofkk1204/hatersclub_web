@@ -152,9 +152,7 @@ function App() {
     let totalCostWei = String(cost * mintAmount);
 
     console.log(cost);
-    console.log(Date.now() /1000)
-    console.log(value1 + 1800)
-  
+
     if (data.totalSupply < 2000) {totalCostWei = 0};
 
     blockchain.smartContract.methods
