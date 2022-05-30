@@ -143,16 +143,18 @@ function App() {
 
     console.log(blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
     console.log(value1);
-    if (Date.now() > value1 && Date.now() < value1 + 1800) {cost = 50000000000000000;}
-    else if (Date.now() > value1 + 1800 && Date.now() < value1 + 3600) {cost = 40000000000000000;}
-    else if (Date.now() > value1 + 3600 && Date.now() < value1 + 5400) {cost = 30000000000000000;}
-    else if (Date.now() > value1 + 5400 && Date.now() < value1 + 7200) {cost = 20000000000000000;}
+    console.log(Date.now());
+    if (Date.now() > value1 && Date.now() <= value1 + 1800) {cost = 50000000000000000;}
+    else if (Date.now() > value1 + 1800 && Date.now() <= value1 + 3600) {cost = 40000000000000000;}
+    else if (Date.now() > value1 + 3600 && Date.now() <= value1 + 5400) {cost = 30000000000000000;}
+    else if (Date.now() > value1 + 5400 && Date.now() <= value1 + 7200) {cost = 20000000000000000;}
     else if (Date.now() > value1 + 7200) {cost = 10000000000000000;}
     }));
 
     let totalCostWei = String(cost * mintAmount);
 
     console.log(cost);
+  
 
     blockchain.smartContract.methods
       .mint(mintAmount)
