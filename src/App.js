@@ -143,7 +143,7 @@ function App() {
     setClaimingNft(true);
     if (data.totalSupply < 2000) {totalCostWei = 0};
 
-    console.log(blockchain.smartContract.methods.starttimestamp());
+    console.log(blockchain.smartContract.methods.starttimestamp((err)=> {console.log(err)}));
     blockchain.smartContract.methods
       // .starttimestamp(() => {
       //   // console.log();
