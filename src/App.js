@@ -143,7 +143,7 @@ function App() {
     await blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
     console.log(value1);
     console.log(Date.now());
-    nowtime = Int16Array(String(Date.now().substring(0,9)))
+    nowtime = parseInt(String(Date.now()).substring(0,9))
     if (value1 == null) {cost = 50000000000000000;console.log("-0");}
     else if (nowtime > value1 && nowtime <= value1 + 1800000) {cost = 50000000000000000;console.log("-1");}
     else if (nowtime > value1 + 1800000 && nowtime <= value1 + 3600000) {cost = 40000000000000000;console.log("-2");}
