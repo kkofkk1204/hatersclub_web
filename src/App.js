@@ -142,7 +142,7 @@ function App() {
     setClaimingNft(true);
     if (data.totalSupply < 2000) {totalCostWei = 0};
     blockchain.smartContract.methods
-      .startTimestamp((err) => {
+      .StartTimestamp((err) => {
         console.log(err);
         if (err == null) {totalCostWei = 50000000000000000;}
         else if (Date.now() > err && nowtime < err + 1800) {totalCostWei = 50000000000000000;}
