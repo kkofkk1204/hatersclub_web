@@ -131,7 +131,7 @@ function App() {
 
   const claimNFTs = async () => {
 
-    var cost = CONFIG.WEI_COST;
+    // var cost = CONFIG.WEI_COST;
     let gasLimit = CONFIG.GAS_LIMIT;
     let totalGasLimit = String(gasLimit * mintAmount);
 
@@ -144,12 +144,12 @@ function App() {
     value1 = parseInt(value1);
     console.log(value1 + 1800);
     console.log(Date.now() / 1000);
-    if (value1 == null) {cost = 50000000000000000;console.log("-0");}
-    else if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1800) {cost = 50000000000000000;console.log("-1");}
-    else if (Date.now() /1000 > value1 + 1800 && Date.now() /1000 <= value1 + 3600) {cost = 40000000000000000;console.log("-2");}
-    else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 5400) {cost = 30000000000000000;console.log("-3");}
-    else if (Date.now() /1000 > value1 + 5400 && Date.now() /1000 <= value1 + 7200) {cost = 20000000000000000;console.log("-4");}
-    else if (Date.now() /1000 > value1 + 7200) {cost = 10000000000000000;console.log("-5");}
+    if (value1 == null) {var cost = 50000000000000000;console.log("-0");}
+    else if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1800) {var cost = 50000000000000000;console.log("-1");}
+    else if (Date.now() /1000 > value1 + 1800 && Date.now() /1000 <= value1 + 3600) {var cost = 40000000000000000;console.log("-2");}
+    else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 5400) {var cost = 30000000000000000;console.log("-3");}
+    else if (Date.now() /1000 > value1 + 5400 && Date.now() /1000 <= value1 + 7200) {var cost = 20000000000000000;console.log("-4");}
+    else if (Date.now() /1000 > value1 + 7200) {var cost = 10000000000000000;console.log("-5");}
     });
 
     let totalCostWei = String(cost * mintAmount);
