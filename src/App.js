@@ -142,7 +142,7 @@ function App() {
     
     blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
     if (value1 == null) {cost = 50000000000000000;console.log("-0");}
-    else if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1800000) {cost = 50000000000000000;console.log("-1");}
+    else if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1800) {cost = 50000000000000000;console.log("-1");}
     else if (Date.now() /1000 > value1 + 1800 && Date.now() /1000 <= value1 + 3600) {cost = 40000000000000000;console.log("-2");}
     else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 5400) {cost = 30000000000000000;console.log("-3");}
     else if (Date.now() /1000 > value1 + 5400 && Date.now() /1000 <= value1 + 7200) {cost = 20000000000000000;console.log("-4");}
