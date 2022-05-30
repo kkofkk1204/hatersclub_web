@@ -141,14 +141,15 @@ function App() {
     setClaimingNft(true);
     
     blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
-    console.log(value1 + 1800000);
-    console.log(Date.now());
+    value1 = parseInt(value1);
+    console.log(value1 + 1800);
+    console.log(Date.now() / 1000);
     if (value1 == null) {cost = 50000000000000000;console.log("-0");}
-    else if (Date.now() > value1 && Date.now() <= value1 + 1800000) {cost = 50000000000000000;console.log("-1");}
-    else if (Date.now() > value1 + 1800000 && Date.now() <= value1 + 3600000) {cost = 40000000000000000;console.log("-2");}
-    else if (Date.now() > value1 + 3600000 && Date.now() <= value1 + 5400000) {cost = 30000000000000000;console.log("-3");}
-    else if (Date.now() > value1 + 5400000 && Date.now() <= value1 + 7200000) {cost = 20000000000000000;console.log("-4");}
-    else if (Date.now() > value1 + 7200000) {cost = 10000000000000000;console.log("-5");}
+    else if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1800) {cost = 50000000000000000;console.log("-1");}
+    else if (Date.now() /1000 > value1 + 1800 && Date.now() /1000 <= value1 + 3600) {cost = 40000000000000000;console.log("-2");}
+    else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 5400) {cost = 30000000000000000;console.log("-3");}
+    else if (Date.now() /1000 > value1 + 5400 && Date.now() /1000 <= value1 + 7200) {cost = 20000000000000000;console.log("-4");}
+    else if (Date.now() /1000 > value1 + 7200) {cost = 10000000000000000;console.log("-5");}
     });
 
     let totalCostWei = String(cost * mintAmount);
