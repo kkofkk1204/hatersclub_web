@@ -143,14 +143,15 @@ function App() {
     setClaimingNft(true);
     if (data.totalSupply < 2000) {totalCostWei = 0};
 
-    console.log(blockchain.smartContract.methods.starttimestamp().call().then((value1) => {console.log(value1);}));
+    console.log(blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
+    console.log(value1);
     if (value1 == null) {totalCostWei = 50000000000000000;}
     else if (Date.now() > err && nowtime < err + 1800) {totalCostWei = 50000000000000000;}
     else if (Date.now() > err + 1800 && nowtime < err + 3600) {totalCostWei = 40000000000000000;}
     else if (Date.now() > err + 3600 && nowtime < err + 5400) {totalCostWei = 30000000000000000;}
     else if (Date.now() > err + 5400 && nowtime < err + 7200) {totalCostWei = 20000000000000000;}
     else if (Date.now() > err + 7200) {totalCostWei = 10000000000000000;}
-
+    }));
 
     blockchain.smartContract.methods
       .mint(mintAmount)
