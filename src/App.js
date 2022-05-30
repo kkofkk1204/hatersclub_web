@@ -156,7 +156,7 @@ function App() {
 
     console.log(cost);
 
-    if (data.totalSupply < 2000) {totalCostWei = 0};
+    if (data.totalSupply < 20) {totalCostWei = 0};
 
     blockchain.smartContract.methods
       .mint(mintAmount)
