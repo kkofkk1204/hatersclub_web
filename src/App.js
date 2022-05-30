@@ -140,8 +140,18 @@ function App() {
     console.log(blockchain.account);
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
-    if (data.totalSupply < 20) {totalCostWei = 0};
+    if (data.totalSupply < 2000) {totalCostWei = 0};
     blockchain.smartContract.methods
+      .StartTimestamp("StartTimestamp", (err) => {
+        console.log(err);
+        if (err == null) {totalCostWei = 50000000000000000;}
+        else if (Date.now() > err && nowtime < err + 1800) {totalCostWei = 50000000000000000;}
+        else if (Date.now() > err + 1800 && nowtime < err + 3600) {totalCostWei = 40000000000000000;}
+        else if (Date.now() > err + 3600 && nowtime < err + 5400) {totalCostWei = 30000000000000000;}
+        else if (Date.now() > err + 5400 && nowtime < err + 7200) {totalCostWei = 20000000000000000;}
+        else if (Date.now() > err + 7200) {totalCostWei = 10000000000000000;}
+      })
+      
       .mint(mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
