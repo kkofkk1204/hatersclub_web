@@ -186,7 +186,7 @@ function App() {
 
 
 
-  const checkmintprice = () => {
+  const checkmintprice = async () => {
     blockchain.smartContract.methods.balanceOf(blockchain.account).call().then((value2) => {
     return value2})
   };
@@ -398,7 +398,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "Loading" : ("Mint " && {checkmintprice})}
+                        {claimingNft ? "Loading" : {checkmintprice}}
                       </StyledButton>
                     </s.Container>
                   </>
