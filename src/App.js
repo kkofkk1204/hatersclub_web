@@ -146,7 +146,7 @@ function App() {
 
     value1 = parseInt(value1);
 
-    if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1800) {cost = 50000000000000000;console.log("-1");}
+    if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1200) {cost = 50000000000000000;console.log("-1");}
     else if (Date.now() /1000 > value1 + 1200 && Date.now() /1000 <= value1 + 2400) {cost = 40000000000000000;console.log("-2");}
     else if (Date.now() /1000 > value1 + 2400 && Date.now() /1000 <= value1 + 3600) {cost = 30000000000000000;console.log("-3");}
     else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 4800) {cost = 20000000000000000;console.log("-4");}
