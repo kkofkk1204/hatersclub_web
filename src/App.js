@@ -186,7 +186,7 @@ function App() {
 
 
 
-  const checkmintprice = async () => {
+  const checkmintprice = () => {
     blockchain.smartContract.methods.balanceOf(blockchain.account).call().then((value2) => {
     return value2})
   };
@@ -286,14 +286,14 @@ function App() {
               </>
             ) : (
               <>
+              <p>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   Free Mint : 1 ~ 2000 NFTs - Only One Free Mint Per Wallet
-
-
-                 
                 </s.TextTitle>
+                </p>
+                <p>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
@@ -303,14 +303,8 @@ function App() {
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   Mint Price : 0.05eth to 0.01eth - Decrement 0.01eth in every 20mins 
-
-
-
-
-
-                   
                 </s.TextTitle>
-                
+                </p>
                 {blockchain.account === "" ||
                 blockchain.smartContract === null ? (
                   <s.Container ai={"center"} jc={"center"}>
@@ -398,7 +392,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "Loading" : {checkmintprice}}
+                        {claimingNft ? "Loading" : "Mint"}
                       </StyledButton>
                     </s.Container>
                   </>
