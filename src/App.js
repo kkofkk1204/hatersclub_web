@@ -291,6 +291,7 @@ function App() {
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   Free Mint : 1 ~ 2000 NFTs - Only One Free Mint Per Wallet
+                  ===============================================================
                 </s.TextTitle>
                 </p>
                 <p>
@@ -302,7 +303,7 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Mint Price : 0.05eth to 0.01eth - Decrement 0.01eth in every 20mins 
+                  Mint Price : 0.05eth to 0.01eth - Decrease 0.01eth in every 20mins 
                 </s.TextTitle>
                 </p>
                 {blockchain.account === "" ||
