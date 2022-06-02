@@ -281,15 +281,17 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Free Mint : 1 ~ 2000 NFTs
+                  Free Mint : 1 ~ 2000 NFTs - Only One Free Mint Per Wallet
                 </s.TextTitle>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Public Mint : 2001 ~ 5000 NFTS @ 0.05eth
-
-
-
+                  Dutch Auction Mint : 2001 ~ 5000 NFTS - No Limit
+                </s.TextTitle>
+                <s.TextTitle
+                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                >
+                  @ 0.05eth to 0.01eth - Decrement 0.01 in every 20mins 
                 </s.TextTitle>
                 
                 {blockchain.account === "" ||
