@@ -139,23 +139,25 @@ function App() {
     setFeedback(`Minting your ${CONFIG.NFT_NAME}...`);
     setClaimingNft(true);
     
+    
+    blockchain.smartContract.methods.balanceOf().call().then((value2) => {
+
     blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
 
     value1 = parseInt(value1);
-    console.log(value1 + 1800);
-    console.log(Date.now() / 1000);
+
     if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1800) {cost = 50000000000000000;console.log("-1");}
-    else if (Date.now() /1000 > value1 + 1800 && Date.now() /1000 <= value1 + 3600) {cost = 40000000000000000;console.log("-2");}
-    else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 5400) {cost = 30000000000000000;console.log("-3");}
-    else if (Date.now() /1000 > value1 + 5400 && Date.now() /1000 <= value1 + 7200) {cost = 20000000000000000;console.log("-4");}
-    else if (Date.now() /1000 > value1 + 7200) {cost = 10000000000000000;console.log("-5");}
+    else if (Date.now() /1000 > value1 + 1200 && Date.now() /1000 <= value1 + 2400) {cost = 40000000000000000;console.log("-2");}
+    else if (Date.now() /1000 > value1 + 2400 && Date.now() /1000 <= value1 + 3600) {cost = 30000000000000000;console.log("-3");}
+    else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 4800) {cost = 20000000000000000;console.log("-4");}
+    else if (Date.now() /1000 > value1 + 4800) {cost = 10000000000000000;console.log("-5");}
     else {{cost = 50000000000000000;console.log("-0");}}
 
-    console.log("123123");
     let totalCostWei = String(cost * mintAmount);
-    console.log(cost);
 
-    if (data.totalSupply < 20) {totalCostWei = 0};
+    if (data.totalSupply < 2000 && value2 == "0") {
+      totalCostWei = 0
+    };
 
     blockchain.smartContract.methods
       .mint(mintAmount)
@@ -179,6 +181,7 @@ function App() {
         dispatch(fetchData(blockchain.account));
       });
     });
+  });
   };
 
   const decrementMintAmount = () => {
