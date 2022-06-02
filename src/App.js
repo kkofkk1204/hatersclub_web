@@ -140,7 +140,7 @@ function App() {
     setClaimingNft(true);
     
     
-    blockchain.smartContract.methods.balanceOf().call().then((value2) => {
+    blockchain.smartContract.methods.balanceOf(blockchain.account).call().then((value2) => {
 
     blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
 
