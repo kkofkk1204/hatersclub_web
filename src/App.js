@@ -202,8 +202,8 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 10) {
-      newMintAmount = 10;
+    if (newMintAmount > 50) {
+      newMintAmount = 50;
     }
     setMintAmount(newMintAmount);
   };
@@ -290,12 +290,12 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Free Mint : 1 ~ 2000 NFTs - Only One Free Mint Per Wallet
+                  Free Mint : 1 ~ 2000 NFTs - Only One 
                 </s.TextTitle>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  =====================================================
+                  ========================
                 </s.TextTitle>
                 </p>
                 <p>
