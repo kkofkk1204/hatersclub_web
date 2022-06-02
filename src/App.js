@@ -291,7 +291,11 @@ function App() {
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   Free Mint : 1 ~ 2000 NFTs - Only One Free Mint Per Wallet
-                  ===============================================================
+                </s.TextTitle>
+                <s.TextTitle
+                  style={{ textAlign: "center", color: "var(--accent-text)" }}
+                >
+                  =====================================================
                 </s.TextTitle>
                 </p>
                 <p>
