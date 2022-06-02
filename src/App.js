@@ -184,6 +184,12 @@ function App() {
   });
   };
 
+
+
+  const checkmintprice = () => {
+    return 20
+  };
+
   const decrementMintAmount = () => {
     let newMintAmount = mintAmount - 1;
     if (newMintAmount < 1) {
@@ -191,6 +197,7 @@ function App() {
     }
     setMintAmount(newMintAmount);
   };
+
 
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
@@ -282,6 +289,9 @@ function App() {
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   Free Mint : 1 ~ 2000 NFTs - Only One Free Mint Per Wallet
+
+
+                 
                 </s.TextTitle>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
@@ -291,7 +301,13 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  @ 0.05eth to 0.01eth - Decrement 0.01 in every 20mins 
+                  Mint Price : 0.05eth to 0.01eth - Decrement 0.01eth in every 20mins 
+
+
+
+
+
+                   
                 </s.TextTitle>
                 
                 {blockchain.account === "" ||
@@ -381,7 +397,7 @@ function App() {
                           getData();
                         }}
                       >
-                        {claimingNft ? "Loading" : "Mint"}
+                        {claimingNft ? "Loading" : "Mint " & {checkmintprice}}
                       </StyledButton>
                     </s.Container>
                   </>
