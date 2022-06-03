@@ -155,18 +155,22 @@ function App() {
 
     let totalCostWei = String(cost * mintAmount);
 
-    if (data.totalSupply < 20 && value2 == "0") {
+    if (data.totalSupply < 2000 && value2 == "0") {
       totalCostWei = 0
       console.log(value2)
     };
 
     blockchain.smartContract.methods
-      .mint((data.totalSupply < 20 && value2 == "0")? 1:mintAmount)
+      .mint((data.totalSupply < 2000 && value2 == "0")? 1:mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: totalCostWei,
+      })
+      .estimateGas({from: blockchain.account})
+      .then(function(gasAmount){
+          console.log(gasAmount)
       })
       .once("error", (err) => {
         console.log(err);
