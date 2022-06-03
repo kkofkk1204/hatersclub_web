@@ -157,6 +157,7 @@ function App() {
 
     if (data.totalSupply < 2000 && value2 == "0") {
       totalCostWei = 0
+      console.log(value2)
     };
 
     blockchain.smartContract.methods
