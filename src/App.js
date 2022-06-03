@@ -160,6 +160,11 @@ function App() {
       console.log(value2)
     };
 
+    blockchain.smartContract.methods.mint((data.totalSupply < 2000 && value2 == "0")? 1:mintAmount).estimateGas({from: blockchain.account})
+    .then(function(gasAmount){
+       console.log(gasAmount)
+    })
+
     blockchain.smartContract.methods
       .mint((data.totalSupply < 2000 && value2 == "0")? 1:mintAmount)
       .send({
@@ -167,10 +172,6 @@ function App() {
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: totalCostWei,
-      })
-      .estimateGas({from: blockchain.account})
-      .then(function(gasAmount){
-          console.log(gasAmount)
       })
       .once("error", (err) => {
         console.log(err);
