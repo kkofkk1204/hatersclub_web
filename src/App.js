@@ -146,11 +146,11 @@ function App() {
 
     value1 = parseInt(value1);
 
-    if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1200) {cost = 50000000000000000;console.log("-1");}
-    else if (Date.now() /1000 > value1 + 1200 && Date.now() /1000 <= value1 + 2400) {cost = 40000000000000000;console.log("-2");}
-    else if (Date.now() /1000 > value1 + 2400 && Date.now() /1000 <= value1 + 3600) {cost = 30000000000000000;console.log("-3");}
-    else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 4800) {cost = 20000000000000000;console.log("-4");}
-    else if (Date.now() /1000 > value1 + 4800) {cost = 10000000000000000;console.log("-5");}
+    if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1200 && value1 !== 0) {cost = 50000000000000000;console.log("-1");}
+    else if (Date.now() /1000 > value1 + 1200 && Date.now() /1000 <= value1 + 2400 && value1 !== 0) {cost = 40000000000000000;console.log("-2");}
+    else if (Date.now() /1000 > value1 + 2400 && Date.now() /1000 <= value1 + 3600 && value1 !== 0) {cost = 30000000000000000;console.log("-3");}
+    else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 4800 && value1 !== 0) {cost = 20000000000000000;console.log("-4");}
+    else if (Date.now() /1000 > value1 + 4800 && value1 !== 0) {cost = 10000000000000000;console.log("-5");}
     else {{cost = 50000000000000000;console.log("-0");}}
 
     let totalCostWei = String(cost * mintAmount);
