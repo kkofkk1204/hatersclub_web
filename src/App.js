@@ -161,7 +161,7 @@ function App() {
     };
 
     blockchain.smartContract.methods
-      .mint((data.totalSupply < 2000 && value2 == "0")? 1:mintAmount)
+      .mint((data.totalSupply < 20 && value2 == "0")? 1:mintAmount)
       .send({
         gasLimit: String(totalGasLimit),
         to: CONFIG.CONTRACT_ADDRESS,
