@@ -162,13 +162,12 @@ function App() {
 
     blockchain.smartContract.methods.mint((data.totalSupply < 2000 && value2 == "0")? 1:mintAmount).estimateGas({from: blockchain.account})
     .then(function(gasAmount){
-       console.log(gasAmount)
-    })
-
+      console.log(gasAmount)
+   
     blockchain.smartContract.methods
       .mint((data.totalSupply < 2000 && value2 == "0")? 1:mintAmount)
       .send({
-        gasLimit: String(totalGasLimit),
+        gasLimit: String(gasAmount),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: totalCostWei,
@@ -184,7 +183,7 @@ function App() {
           `Done! ${CONFIG.NFT_NAME}, Please go visit Opensea.io to view it.`
         );
         setClaimingNft(false);
-        dispatch(fetchData(blockchain.account));
+        dispatch(fetchData(blockchain.account));})
       });
     });
   });
