@@ -1,18 +1,18 @@
 {
-  "CONTRACT_ADDRESS": "0xc62d3E794CD73d84A2A9a0aE2A4BeD4f4F54Dd8b",
-  "SCAN_LINK": "https://mumbai.polygonscan.com/address/0xc62d3E794CD73d84A2A9a0aE2A4BeD4f4F54Dd8b",
+  "CONTRACT_ADDRESS": "0xC1dA4323D3ffE28b2F07d7675b6f7e5dE7De98cb",
+  "SCAN_LINK": "https://etherscan.io/address/0xc1da4323d3ffe28b2f07d7675b6f7e5de7de98cb",
   "NETWORK": {
-    "NAME": "Mumbai Testnet",
-    "SYMBOL": "MATIC",
-    "ID": 80001
+    "NAME": "Ethereum Mainnet",
+    "SYMBOL": "ETH",
+    "ID": 1
   },
-  "NFT_NAME": "haterclubtesting2",
-  "SYMBOL": "haterclubtesting2",
+  "NFT_NAME": "HatersClub.fud",
+  "SYMBOL": "HatersClub.fud",
   "MAX_SUPPLY": 5000,
   "WEI_COST": 50000000000000000,
   "DISPLAY_COST": 0.05,
   "GAS_LIMIT": 285000,
   "MARKETPLACE": "Opeansea",
-  "MARKETPLACE_LINK": "https://testnets.opensea.io/collection/haterclubtesting2",
+  "MARKETPLACE_LINK": "https://opensea.io/collection/hatersclub-fud",
   "SHOW_BACKGROUND": true
 }
