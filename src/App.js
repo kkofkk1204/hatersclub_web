@@ -155,6 +155,8 @@ function App() {
 
     let totalCostWei = String(cost * mintAmount);
 
+    console.log(value2);
+    console.log(totalCostWei);
     if (data.totalSupply < 2000 && value2 == "0") {
       totalCostWei = 0
       console.log(value2)
