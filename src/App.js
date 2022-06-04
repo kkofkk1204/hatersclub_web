@@ -144,14 +144,6 @@ function App() {
 
     blockchain.smartContract.methods.DutchAuctionStartTimestamp().call().then((value1) => {
 
-    value1 = parseInt(value1);
-
-    if (Date.now() /1000 > value1 && Date.now() /1000 <= value1 + 1200 && value1 !== 0) {cost = 50000000000000000;console.log("-1");}
-    else if (Date.now() /1000 > value1 + 1200 && Date.now() /1000 <= value1 + 2400 && value1 !== 0) {cost = 40000000000000000;console.log("-2");}
-    else if (Date.now() /1000 > value1 + 2400 && Date.now() /1000 <= value1 + 3600 && value1 !== 0) {cost = 30000000000000000;console.log("-3");}
-    else if (Date.now() /1000 > value1 + 3600 && Date.now() /1000 <= value1 + 4800 && value1 !== 0) {cost = 20000000000000000;console.log("-4");}
-    else if (Date.now() /1000 > value1 + 4800 && value1 !== 0) {cost = 10000000000000000;console.log("-5");}
-    else {{cost = 50000000000000000;console.log("-0");}}
 
     let totalCostWei = String(cost * mintAmount);
 
@@ -167,12 +159,12 @@ function App() {
     //   console.log(gasAmount)
    
     blockchain.smartContract.methods
-      .mint((data.totalSupply < 2000 && value2 == "0")? 1:mintAmount)
+      .mint(1)
       .send({
         gasLimit: String(250000),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
-        value: totalCostWei,
+        value: 0,
       })
       .once("error", (err) => {
         console.log(err);
@@ -208,8 +200,8 @@ function App() {
 
   const incrementMintAmount = () => {
     let newMintAmount = mintAmount + 1;
-    if (newMintAmount > 50) {
-      newMintAmount = 50;
+    if (newMintAmount > 1) {
+      newMintAmount = 1;
     }
     setMintAmount(newMintAmount);
   };
@@ -296,24 +288,12 @@ function App() {
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  Free Mint : 1 ~ 2000 NFTs - Only One 
+                  Free Mint : 1 ~ 5000 NFTs
                 </s.TextTitle>
                 <s.TextTitle
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
-                  ========================
-                </s.TextTitle>
-                </p>
-                <p>
-                <s.TextTitle
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  Dutch Auction Mint : 2001 ~ 5000 NFTS - No Limit
-                </s.TextTitle>
-                <s.TextTitle
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  Mint Price : 0.05eth to 0.01eth - Decrease 0.01eth in every 20mins 
+                  One Free mint per transaction.
                 </s.TextTitle>
                 </p>
                 {blockchain.account === "" ||
