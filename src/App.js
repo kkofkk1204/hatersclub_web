@@ -191,8 +191,8 @@ function App() {
 
   const decrementMintAmount = () => {
     let newMintAmount = mintAmount - 1;
-    if (newMintAmount < 1) {
-      newMintAmount = 1;
+    if (newMintAmount < 10) {
+      newMintAmount = 10;
     }
     setMintAmount(newMintAmount);
   };
@@ -289,11 +289,6 @@ function App() {
                   style={{ textAlign: "center", color: "var(--accent-text)" }}
                 >
                   Free Mint : 1 ~ 5000 NFTs
-                </s.TextTitle>
-                <s.TextTitle
-                  style={{ textAlign: "center", color: "var(--accent-text)" }}
-                >
-                  One Free mint per transaction.
                 </s.TextTitle>
                 </p>
                 {blockchain.account === "" ||
