@@ -162,7 +162,7 @@ function App() {
       console.log(value2)
     };
 
-    blockchain.smartContract.methods.mint((data.totalSupply < 2000 && value2 == "0")? 1:mintAmount).estimateGas({from: blockchain.account})
+    blockchain.smartContract.methods.mint(mintAmount).estimateGas({from: blockchain.account})
     .then(function(gasAmount){
       console.log(gasAmount)
    
