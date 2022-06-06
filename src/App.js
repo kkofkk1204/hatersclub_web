@@ -154,14 +154,14 @@ function App() {
 
     console.log(value2);
     console.log(totalCostWei);
-    // blockchain.smartContract.methods.mint(mintAmount).estimateGas({from: blockchain.account})
-    // .then(function(gasAmount){
-    //   console.log(gasAmount)
+    blockchain.smartContract.methods.mint(mintAmount).estimateGas({from: blockchain.account})
+    .then(function(gasAmount){
+      console.log(gasAmount)
    
     blockchain.smartContract.methods
       .mint(1)
       .send({
-        gasLimit: String(250000),
+        gasLimit: String(gasAmount),
         to: CONFIG.CONTRACT_ADDRESS,
         from: blockchain.account,
         value: 0,
@@ -179,6 +179,7 @@ function App() {
         setClaimingNft(false);
         dispatch(fetchData(blockchain.account));})
       });
+    });
   });
   };
 
